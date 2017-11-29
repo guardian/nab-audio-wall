@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import { Header, Heading } from '../Layout'
 import copy from './copy'
-
 import styleVars from '../../styles'
 
 const { COLOURS, TYPE, BP } = styleVars

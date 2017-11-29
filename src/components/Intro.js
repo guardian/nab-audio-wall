@@ -6,7 +6,7 @@ import Icon from './Icon'
 import styleVars from '../styles'
 
 const { PUBLIC_URL } = process.env
-const { TYPE } = styleVars
+const { TYPE, COLOURS } = styleVars
 
 const Wrapper = styled.div`
   display: flex;
@@ -97,6 +97,25 @@ const ShareIcons = styled.div`
   }
 `
 
+const CTA = styled.a`
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: inline-block;
+  text-decoration: none;
+  color: ${COLOURS.bodyCopy.default};
+  position: relative;
+  &:hover {
+    color: black;
+    /* NOTE: https://css-tricks.com/how-to-do-knockout-text/ */
+    mix-blend-mode: screen;
+    font-weight: bold;
+    background-color: ${COLOURS.bodyCopy.default};
+    cursor: pointer;
+  };
+  font-family: 'Guardian Agate Sans', sans-serif;
+`
+
 const Intro = () => (
   <Wrapper>
     <BodyContent>
@@ -130,14 +149,14 @@ const Intro = () => (
         <img src={`${PUBLIC_URL || ''}/icons/icon-logo.png`} alt="NAB Logo" />
       </PaidFor>
       <Link to="/overview" style={{ textDecoration: 'none' }}>
-        <Icon icon="e901" color="white" isInteractive />
+        <CTA>Click here to begin</CTA>
       </Link>
       <Share>
         Share this
         <ShareIcons>
           <a
             href={`https://www.facebook.com/sharer/sharer.php?u=${
-              window.location
+              window.location.href.split("#")[0]
             }`}
           >
             <img
@@ -145,7 +164,7 @@ const Intro = () => (
               alt="Share with Facebook"
             />
           </a>
-          <a href={`https://twitter.com/intent/tweet?text=${window.location}`}>
+          <a href={`https://twitter.com/intent/tweet?text=${window.location.href.split("#")[0]}`}>
             <img
               src={`${PUBLIC_URL || ''}/icons/icon_twitter.png`}
               alt="Share with Twitter"

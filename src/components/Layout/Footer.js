@@ -28,22 +28,11 @@ const FooterSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 25%;
+  flex-basis: 33%;
   align-self: center;
   height: 100%;
   @media screen and (max-width: 767px) {
      flex-basis: 33%;
-  }
-`
-const FooterSectionHide = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-basis: 16%;
-  align-self: center;
-  height: 100%;
-  @media screen and (max-width: 767px) {
-     display: none;
   }
 `
 const LinkItemWrapper = styled.div`
@@ -159,6 +148,7 @@ const NabLogo = styled.div`
     vertical-align: middle;
   }
   img {
+    width: 72px;
   	vertical-align: middle;
     margin-left: 20px;
   }
@@ -174,28 +164,19 @@ const NabLogo = styled.div`
 `
 
 type Props = {
-  onMute: Function => void,
-  isMuted: boolean
+  backTo: string
 }
 
-const Footer = ({ onMute, isMuted }: Props) => (
+const Footer = ({ backTo }: Props) => (
   <Wrapper>
     <FooterSection>
       <BackButton>
-        <Link to="/overview">
+        <Link to={backTo}>
           <img src={`${PUBLIC_URL || ''}/icons/icon_back.svg`} alt="Back" />
           <LinkItemCopy>Back</LinkItemCopy>
         </Link>
       </BackButton>
     </FooterSection>
-    <FooterSectionHide isActive={isMuted}>
-      <LinkItemWrapper>
-        <button onClick={onMute}>
-          <Icon icon="e90a" color={isMuted ? COLOURS.highlights : 'black'} />
-          <LinkItemCopy isActive={isMuted}>Mute</LinkItemCopy>
-        </button>
-      </LinkItemWrapper>
-    </FooterSectionHide>
     <FooterSection>
       <LinkItemWrapper>
         <Link to="/get-help">
@@ -208,7 +189,7 @@ const Footer = ({ onMute, isMuted }: Props) => (
       <NabLogo>
         <a href="https://nab.com.au">
           <LinkItemCopy>Paid For By</LinkItemCopy>
-          <img style={{width:"72", verticalAlign: "middle", marginLeft: "20px"}} src={`${PUBLIC_URL || ''}/icons/icon_logo-nab.png`} alt="Paid For By NAB" />
+          <img src={`${PUBLIC_URL || ''}/icons/icon_logo-nab.png`} alt="Paid For By NAB" />
         </a>
       </NabLogo>
     </FooterSection>

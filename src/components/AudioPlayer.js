@@ -2,6 +2,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable */
 import React, { Component } from 'react'
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-76345112-8');
 
 const { PUBLIC_URL } = process.env
 
@@ -43,7 +45,7 @@ class AudioPlayer extends Component<PropsT, StateT> {
 
     // When enough of the file has downloaded to start playing
     audio.addEventListener('canplay', () => {
-      // audio.play()
+      //audio.play()
     })
 
     // audio.muted = false
@@ -70,7 +72,7 @@ class AudioPlayer extends Component<PropsT, StateT> {
     if (nextProps.chapter !== this.props.chapter) {
       this.audioEl.removeAttribute('src')
       this.audioEl.load()
-      // this.audioEl.play()
+      //this.audioEl.play()
     }
     if (nextProps.isMuted !== this.props.isMuted)
       this.audioEl.muted = this.props.isMuted
@@ -93,6 +95,11 @@ class AudioPlayer extends Component<PropsT, StateT> {
   switchPlayerState = (isPlaying: boolean) => {
     if (isPlaying === true) {
       this.audioEl.play()
+      ReactGA.event({
+        category: 'Audio',
+        action: 'play',
+        label: this.audioEl.currentSrc
+      });
       console.info(`isPlaying: ${isPlaying}`)
     } else {
       this.audioEl.pause()
@@ -103,9 +110,9 @@ class AudioPlayer extends Component<PropsT, StateT> {
   audioEl: AudioElT
 
   render() {
-    const { story, chapter, audioFormats } = this.props
+    const { story, chapter, audioFormats, endedCallback, canPlayCallback } = this.props
     return (
-      <audio
+      <audio onEnded={endedCallback} onCanPlay={canPlayCallback}
         ref={el => {
           this.audioEl = el
         }}

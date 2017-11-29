@@ -1,4 +1,5 @@
 // @flow
+/* eslint no-console: 0 */
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -131,10 +132,21 @@ class StoryPlayer extends Component<Props, State> {
         activeChapter: this.state.activeChapter - 1
       })
     }
+    else
+    {
+		const prevStory = parseInt(this.props.match.params.id, 10) - 1;
+		if (prevStory >= 0) {
+			const newLocation = `#/storyplayer/${prevStory}`;
+			window.location.href = newLocation;
+			this.setState({
+			  activeChapter: 3
+			});
+		}
+    }
   }
 
   handlePlayerNext = () => {
-    /* check that we are on the final chapter and prevent
+/* check that we are on the final chapter and prevent
       increasing the activeChapter value if true
     */
     if (
@@ -151,6 +163,20 @@ class StoryPlayer extends Component<Props, State> {
         activeChapter: this.state.activeChapter + 1
       })
     }
+    else
+    {	
+		if (this.props.isPlaying === true) {
+        	this.props.togglePause()
+      	}
+		const nextStory = parseInt(this.props.match.params.id, 10) + 1;
+		if (nextStory < 4) {
+			const newLocation = `#/storyplayer/${nextStory}`;
+			window.location.href = newLocation;
+			this.setState({
+			  activeChapter: 0
+			});
+		}
+    }
   }
   handleToggleCaptions = () =>
     this.setState({ captionsVisible: !this.state.captionsVisible })
@@ -159,6 +185,14 @@ class StoryPlayer extends Component<Props, State> {
     this.setState({
       duration
     })
+  }
+
+  handleOnEnded = () => {
+    this.handlePlayerNext()
+  }
+
+  handleCanPlay = () => {
+    this.handlePlayerPause()
   }
 
   render() {
@@ -224,8 +258,7 @@ class StoryPlayer extends Component<Props, State> {
       </Wrapper>,
       <Footer
         key="PAGE_FOOTER"
-        onMute={this.handlePlayerMute}
-        isMuted={isMuted}
+        backTo='/overview'
       />,
       playListVisible && <Playlist key="PLAYLIST" />,
       <AudioPlayer
@@ -237,6 +270,8 @@ class StoryPlayer extends Component<Props, State> {
         isPlaying={this.props.isPlaying}
         getAudioDuration={this.handleGetAudioDuration}
         listenInterval={1000}
+		endedCallback={this.handleOnEnded}
+		canPlayCallback={this.handleCanPlay}
       />
     ]
   }

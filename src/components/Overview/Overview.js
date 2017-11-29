@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import styleVars from '../../styles'
-
+import { Footer } from '../../components/Layout'
 import data from '../../data'
 
 const { BP, TYPE } = styleVars
@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   justify-content: stretch;
   height: 100vh;
   width: 100%;
+  margin-bottom: 60px;
   @media (min-width: ${BP.tablet}px) {
     flex-direction: row;
   }
@@ -104,6 +105,7 @@ const ListenTo = styled.div`
 `
 
 const Overview = () => (
+ <div>
   <Wrapper>
     {data.map((s, i) => (
       <Section key={i} storyid={i} to={`/storyplayer/${i}`}>
@@ -118,6 +120,8 @@ const Overview = () => (
       </Section>
     ))}
   </Wrapper>
+  <Footer key="PAGE_FOOTER" backTo="/" />
+ </div>
 )
 
 export default Overview
