@@ -7,6 +7,7 @@ const gutil = require('gulp-util')
 const inquirer = require('inquirer')
 const rp = require('request-promise-native')
 const runSequence = require('run-sequence')
+const del = require('del')
 
 const buildDir = './build'
 const cdnUrl = 'https://interactive.guim.co.uk'
@@ -24,6 +25,10 @@ const mainJS = `
 })();`
 
 const CNAME = `glabs-nab-audio-wall-2.surge.sh`
+
+gulp.task('clean', () =>
+  del([buildDir, '.env'])
+)
 
 gulp.task('mainJS', () => {
   file('main.js', mainJS).pipe(gulp.dest('./build'))
