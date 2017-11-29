@@ -74,6 +74,15 @@ const GetHelp = () => (
       </CloseButton>
     </Header>
     <Heading>Where to get help</Heading>
+	<div style={{ width: "100%" }}>
+    <p style={{ padding: "20px", textAlign: "center", maxWidth: "1024px", display: "block", margin: "0 auto", fontFamily: "'Guardian Agate Sans', sans-serif" }}>
+		This content has been brought to you by NAB,
+		who is playing an active role in raising awareness
+		and providing critical support to help see an end
+		to domestic and family violence in our communities.<br />
+		<a href="http://nab.com.au" style={{ color: "white", textDecoration: "underline" }}>nab.com.au</a>
+    </p>
+    </div>
     {copy.map((c, i) => (
       <GridCell key={i}>
         <header>
