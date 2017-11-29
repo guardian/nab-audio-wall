@@ -23,7 +23,7 @@ const mainJS = `
   document.body.appendChild(el);
 })();`
 
-const CNAME = `glabs-nab-audio-wall.surge.sh`
+const CNAME = `glabs-nab-audio-wall-2.surge.sh`
 
 gulp.task('mainJS', () => {
   file('main.js', mainJS).pipe(gulp.dest('./build'))
