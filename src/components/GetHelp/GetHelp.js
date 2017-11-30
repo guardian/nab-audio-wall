@@ -79,7 +79,7 @@ const GetHelp = () => (
 		who is playing an active role in raising awareness
 		and providing critical support to help see an end
 		to domestic and family violence in our communities.<br />
-		<a href="http://nab.com.au" style={{ color: "white", textDecoration: "underline" }}>nab.com.au</a>
+		<a href="https://www.nab.com.au/about-us/corporate-responsibility/customers/domestic-and-family-violence?own_cid=shortURL:endtoviolence" style={{ color: "white", textDecoration: "underline" }}>nab.com.au/endtoviolence</a>
     </p>
     </div>
     {copy.map((c, i) => (
