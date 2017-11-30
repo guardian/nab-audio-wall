@@ -74,4 +74,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+a:hover {
+  text-decoration: none;
+}
 `

@@ -58,6 +58,12 @@ const Section = styled(Link)`
   &:hover {
     flex-grow: 2;
   }
+  &:active {
+    color: white;
+  }
+  &:focus {
+    text-decoration: none;
+  }
   @media (min-width: ${BP.tablet}px) {
     &:hover {
       flex-grow: 4;

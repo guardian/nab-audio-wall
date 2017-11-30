@@ -94,6 +94,9 @@ const ShareIcons = styled.div`
     flex-grow: 1;
     align-self: center;
     text-align: center;
+    img {
+      display: inline;
+    }
   }
 `
 

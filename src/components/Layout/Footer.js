@@ -104,6 +104,7 @@ const BackButton = styled.div`
   img {
   	vertical-align: middle;
     margin-right: 20px;
+    display: inline;
   }
   @media screen and (max-width: 767px) {
     img {
@@ -151,6 +152,7 @@ const NabLogo = styled.div`
     width: 72px;
   	vertical-align: middle;
     margin-left: 20px;
+    display: inline;
   }
   @media screen and (max-width: 767px) {
     img {

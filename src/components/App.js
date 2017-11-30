@@ -17,6 +17,8 @@ const Wrapper = styled.div`
   margin: 0 auto;
   position: relative;
   height: 100%;
+  line-height: 1.15;
+  background-color: white;
 `
 
 const App = () => (
