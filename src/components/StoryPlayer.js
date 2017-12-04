@@ -96,7 +96,7 @@ type State = {|
   activeChapter: number,
   captionsVisible: boolean,
   duration: number
-|}
+|};
 
 type Props = {|
   match: Object,
@@ -104,7 +104,7 @@ type Props = {|
   isPlaying: boolean,
   toggleMute: () => void,
   togglePause: () => void
-|}
+|};
 
 const playListVisible = false
 
@@ -164,7 +164,7 @@ class StoryPlayer extends Component<Props, State> {
       })
     }
     else
-    {	
+    {
 		if (this.props.isPlaying === true) {
         	this.props.togglePause()
       	}
@@ -218,8 +218,9 @@ class StoryPlayer extends Component<Props, State> {
             color="white"
             onClick={this.handleToggleCaptions}
             isInteractive
+            style={{ top: 0 }}
           />
-          <Link to="/overview" style={{ textDecoration: 'none' }}>
+          <Link to="/overview" style={{ textDecoration: 'none', top: 0 }}>
             <Icon icon="e900" color="white" />
           </Link>
         </Header>
