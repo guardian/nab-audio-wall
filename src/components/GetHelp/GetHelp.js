@@ -63,10 +63,10 @@ const GridCell = styled.section`
   text-align: center;
   padding: 1em;
   @media (min-width: ${BP.tablet}px) {
-    max-width: initial;
-    flex-basis: 33%;
+    width: 33.333%;
   }
 `
+
 const GetHelp = () => (
   <Wrapper>
     <Header>
