@@ -123,15 +123,15 @@ const Intro = () => (
   <Wrapper>
     <BodyContent>
       <Header>
-        <h1>Hear them speak</h1>
+        <h1 style={{ margin: "0.67em 0" }}>Hear them speak</h1>
       </Header>
       <Body>
-        <p>
+        <p style={{ margin: "1em 0" }}>
           One in three women have experienced physical or sexual violence
           perpetrated by someone they know.
         </p>
 
-        <p>
+        <p style={{ margin: "1em 0" }}>
           Domestic and family violence can take on many forms - from physical
           assault and manipulation to financial and emotional abuse. One of the
           challenging issues with this kind of abuse is that it’s victims are
@@ -143,7 +143,7 @@ const Intro = () => (
       </Body>
       <ExperienceBlurb>
         <Icon icon="e902" color="white" size="4em" />
-        <p>Plug in headphones for the best experience</p>
+        <p style={{ margin: "1em 0" }}>Plug in headphones for the best experience</p>
       </ExperienceBlurb>
     </BodyContent>
     <Footer>

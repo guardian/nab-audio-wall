@@ -33,6 +33,8 @@ const CloseButton = styled(Link)`
 const Copy = styled.div`
   text-align: center;
   margin-bottom: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.25rem;
   a {
     color: ${COLOURS.bodyCopy.default};
   }
@@ -72,9 +74,9 @@ const GetHelp = () => (
         <Icon icon="e900" color="white" />
       </CloseButton>
     </Header>
-    <Heading>Where to get help</Heading>
+    <Heading style={{ margin: "0.67em 0" }}>Where to get help</Heading>
 	<div style={{ width: "100%" }}>
-    <p style={{ padding: "20px", textAlign: "center", maxWidth: "1024px", display: "block", margin: "0 auto", fontFamily: "'Guardian Agate Sans', sans-serif" }}>
+    <p style={{ padding: "20px", textAlign: "center", maxWidth: "1024px", display: "block", margin: "0 auto", fontFamily: "'Guardian Agate Sans', sans-serif", fontSize: "0.8rem", lineHeight: "1.25rem" }}>
 		This content has been brought to you by NAB,
 		who is playing an active role in raising awareness
 		and providing critical support to help see an end
@@ -85,7 +87,7 @@ const GetHelp = () => (
     {copy.map((c, i) => (
       <GridCell key={i}>
         <header>
-          <h2>{c.title}</h2>
+          <h2 style={{ margin: "0.83em 0" }}>{c.title}</h2>
         </header>
         <Copy>{c.text}</Copy>
         <CTA href={c.url || '#'} target="_blank" rel="noopener noreferrer">

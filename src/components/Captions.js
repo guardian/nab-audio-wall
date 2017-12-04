@@ -33,13 +33,14 @@ const UI = styled.div`
   );
 `
 const Child = styled.div`
-  /* position: absolute; */
+  font-size: 0.8rem;
+  line-height: 1.25rem;
 `
 
 type PropsT = {
   showCaptions: boolean,
   scrollDuration: number
-}
+};
 class Captions extends Component<PropsT, *> {
   componentDidMount() {
     this.nodeDOMEl = document.querySelector(

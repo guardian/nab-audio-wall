@@ -28,7 +28,8 @@ const Wrapper = styled.div`
 `
 
 const SectionBody = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.25rem;
   font-weight: normal;
   height: 0px;
   max-height: 0px;
@@ -120,7 +121,7 @@ const Overview = () => (
           <div>{s.blurb}</div>
           <ListenTo>
             <Icon icon="e902" color="white" size="4em" />
-            <p>Listen to story</p>
+            <p style={{ margin: "1em 0" }}>Listen to story</p>
           </ListenTo>
         </SectionBody>
       </Section>

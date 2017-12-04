@@ -1,5 +1,13 @@
 // @flow
 import React from 'react'
+import styled from 'styled-components'
+
+const Link = styled.a`
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+`
 
 const createLink = (
   url: string,
@@ -9,9 +17,9 @@ const createLink = (
   spaceAfter: number | boolean = true
 ) => [
   spaceBefore && ' ',
-  <a href={url} target="_blank" rel="noopener noreferrer" key={key}>
+  <Link href={url} target="_blank" rel="noopener noreferrer" key={key}>
     {text}
-  </a>,
+  </Link>,
   spaceAfter && ' '
 ]
 
