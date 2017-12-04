@@ -1,13 +1,5 @@
 // @flow
 import React from 'react'
-import styled from 'styled-components'
-
-const Link = styled.a`
-  text-decoration: underline;
-  &:hover {
-    text-decoration: none;
-  }
-`
 
 const createLink = (
   url: string,
@@ -17,9 +9,7 @@ const createLink = (
   spaceAfter: number | boolean = true
 ) => [
   spaceBefore && ' ',
-  <Link href={url} target="_blank" rel="noopener noreferrer" key={key}>
-    {text}
-  </Link>,
+  <span>{text}</span>,
   spaceAfter && ' '
 ]
 
@@ -32,7 +22,7 @@ const copy = [
         '1800RESPECT',
         'GETHELP_LINK_1'
       ),
-      `is the National Sexual Assault Domestic Family Violence Counselling Service. It offers confidential online and telephone counselling, information and referral services. For further support or information call 1800 737 732, 24 hours a day, 7 days a week.`
+      `is the National Sexual Assault Domestic Family Violence Counselling Service. It offers confidential online and telephone counselling, information and referral services.`
     ],
     url: 'https://www.1800respect.org.au/'
   },
@@ -40,12 +30,12 @@ const copy = [
     title: 'Lifeline',
     text: [
       createLink('https://www.lifeline.org.au/', 'Lifeline', 'GETHELP_LINK_2'),
-      `provides Australians experiencing a personal crisis with access to 24 hour crisis support and suicide prevention services. For further support or information please call them on 13 11 14.`
+      `provides Australians experiencing a personal crisis with access to 24 hour crisis support and suicide prevention services.`
     ],
     url: 'https://www.lifeline.org.au/'
   },
   {
-    title: 'Family or domestic violence - Department of Human Services',
+    title: 'Department of Human Services',
     text: [
       'The ',
       createLink(
@@ -60,7 +50,7 @@ const copy = [
   {
     title: 'Divorce or separation',
     text: [
-      `For anyone going through a relationship, break up is hard, emotional and confusing. You can take some practical steps to make this time easier for you and get ready for your next chapter. `,
+      `For anyone going through a relationship, break up is hard, emotional and confusing. You can take some practical steps to make this time easier for you. `,
       createLink(
         'https://www.moneysmart.gov.au/life-events-and-you/life-events/divorce-or-separation',
         'Money Smart - divorce or separation',
@@ -74,34 +64,22 @@ const copy = [
   {
     title: 'No to Violence’s Men’s Referral Service',
     text: [
-      createLink(
-        'http://www.ntvmrs.org.au/about-us/what-we-do/',
-        'The Men’s Referral Service',
-        'GETHELP_LINK_5'
-      ),
-      `A men’s family violence telephone counselling, information and referral service operating in Victoria, New South Wales and Tasmania for men taking responsibility for their violent behaviour. This service provides confidential counselling on 1300 766 491 or via `,
+      `A men’s family violence telephone counselling, information and referral service operating in Victoria, New South Wales and Tasmania for men taking responsibility for their violent behaviour. This service provides confidential counselling and a `,
       createLink(
         'http://www.ntvmrs.org.au/about-us/what-we-do/',
         'Live Chat',
         'GETHELP_LINK_5'
       ),
-      `. Live Chat operating hours are 8am – 9pm Monday to Friday (AEST/ADST).`
+      `.`
     ],
     url: 'http://www.ntvmrs.org.au/get-help/live-chat/'
   },
   {
     title: 'NAB Domestic & Family Violence Support',
     text: [
-      `For NAB customers, there are a number of support services available to help you stay safe, recognise the warning signs and access help in times of crisis. Find out how we can help, including more about keeping your banking safe, at `,
-      createLink(
-        'http://nab.com.au/endtoviolence',
-        'nab.com.au/endtoviolence',
-        'GETHELP_LINK_5'
-      ),
-      `.`
+      `For NAB customers, there are a number of support services available to help you stay safe, recognise the warning signs and access help in times of crisis. Find out how we can help, including more about keeping your banking safe.`
     ],
-    url:
-      'http://nab.com.au/endtoviolence'
+    url: 'http://nab.com.au/endtoviolence'
   }
 ]
 
