@@ -30,6 +30,7 @@ export const TYPE = {
 export const BP = {
   tiny: 320,
   mobile: 375,
+  tablet7: 600,
   tablet: 768,
   desktop: 1366
 }

@@ -6,22 +6,22 @@ import Icon from './Icon'
 import styleVars from '../styles'
 
 const { PUBLIC_URL } = process.env
-const { TYPE, COLOURS } = styleVars
+const { TYPE, COLOURS, BP } = styleVars
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   background: radial-gradient(ellipse at top, #202c96 0%, #3d2f51 100%);
   background-position: top center;
   color: white;
   justify-content: space-between;
   padding: 0 2rem;
+  flex: 1 0 auto;
 `
 const BodyContent = styled.div`
   max-width: 800px;
-  height: 100%;
+  flex: 1 0 auto;
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -60,63 +60,79 @@ const ExperienceBlurb = styled.div`
 `
 
 const Footer = styled.footer`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 100px;
-`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  position: relative;
 
-const PaidFor = styled.div`
-  width: 90px;
-  height: 60px;
-  font-size: 0.5rem;
-  font-family: ${TYPE.fontFamily.functional};
-  img {
-    margin-top: 1em;
-    max-width: 100%;
+  @media (min-width: ${BP.tablet7}px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `
 
-const Share = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 60px;
-  font-size: 1rem;
+const PaidFor = styled.div`
   font-family: ${TYPE.fontFamily.functional};
-`
+  font-size: 0.5em;
 
-const ShareIcons = styled.div`
-  display: flex;
-  flex-direction: row;
-  a {
-    flex-grow: 1;
-    align-self: center;
-    text-align: center;
-    img {
-      display: inline;
-    }
+  @media (max-width: 599px) {
+    order: 1;
+    margin-top: 1rem;
+  }
+
+  img {
+    display: block;
+    margin-top: 0.5rem;
+    width: 4rem;
   }
 `
 
 const CTA = styled.a`
-  border: 1px solid white;
   border-radius: 1rem;
-  padding: 0.5rem;
-  display: inline-block;
-  text-decoration: none;
+  border: #fff solid 1px;
   color: ${COLOURS.bodyCopy.default};
-  position: relative;
+  display: block;
+  font-family: ${TYPE.fontFamily.functional};
+  line-height: 1;
+  padding: 0.5rem;
+  text-decoration: none;
+
+  @media (min-width: ${BP.tablet7}px) {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &:hover {
-    color: black;
-    /* NOTE: https://css-tricks.com/how-to-do-knockout-text/ */
-    mix-blend-mode: screen;
-    font-weight: bold;
     background-color: ${COLOURS.bodyCopy.default};
-    cursor: pointer;
-  };
-  font-family: 'Guardian Agate Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+    mix-blend-mode: screen;
+  }
+`
+
+const Share = styled.div`
+  align-items: center;
+  display: flex;
+  font-family: ${TYPE.fontFamily.functional};
+
+  @media (max-width: 599px) {
+    margin-top: 1.5rem;
+  }
+`
+
+const ShareIcons = styled.div`
+  display: flex;
+
+  a {
+    align-items: center;
+    display: flex;
+    height: 1.5em;
+    justify-content: center;
+    margin-left: 0.5em;
+  }
 `
 
 const Intro = () => (
@@ -148,7 +164,7 @@ const Intro = () => (
     </BodyContent>
     <Footer>
       <PaidFor>
-        Paid for by<br />
+        Paid for by
         <img src={`${PUBLIC_URL || ''}/icons/icon-logo.png`} alt="NAB Logo" />
       </PaidFor>
       <Link to="/overview" style={{ textDecoration: 'none' }}>
@@ -157,11 +173,7 @@ const Intro = () => (
       <Share>
         Share this
         <ShareIcons>
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${
-              window.location.href.split("#")[0]
-            }`}
-          >
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href.split("#")[0]}`}>
             <img
               src={`${PUBLIC_URL || ''}/icons/icon_fb.png`}
               alt="Share with Facebook"
