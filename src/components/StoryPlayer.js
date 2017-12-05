@@ -95,7 +95,8 @@ const PlayControls = styled.div`
 type State = {|
   activeChapter: number,
   captionsVisible: boolean,
-  duration: number
+  duration: number,
+  activeSection: number
 |};
 
 type Props = {|
@@ -112,7 +113,8 @@ class StoryPlayer extends Component<Props, State> {
   state = {
     activeChapter: 0,
     captionsVisible: true,
-    duration: 0
+    duration: 0,
+	activeSection: this.props.match.params.id
   }
 
   handlePlayerMute = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -139,7 +141,8 @@ class StoryPlayer extends Component<Props, State> {
 			const newLocation = `#/storyplayer/${prevStory}`;
 			window.location.href = newLocation;
 			this.setState({
-			  activeChapter: 3
+			  activeChapter: 3,
+			  activeSection: prevStory
 			});
 		}
     }
@@ -173,7 +176,8 @@ class StoryPlayer extends Component<Props, State> {
 			const newLocation = `#/storyplayer/${nextStory}`;
 			window.location.href = newLocation;
 			this.setState({
-			  activeChapter: 0
+			  activeChapter: 0,
+			  activeSection: nextStory,
 			});
 		}
     }
@@ -266,7 +270,7 @@ class StoryPlayer extends Component<Props, State> {
         key="AUDIO_PLAYER"
         audioFormats={['mp3']}
         chapter={this.state.activeChapter + 1}
-        story={activeSection}
+        story={this.state.activeSection}
         isMuted={isMuted}
         isPlaying={this.props.isPlaying}
         getAudioDuration={this.handleGetAudioDuration}
