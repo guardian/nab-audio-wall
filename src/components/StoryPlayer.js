@@ -12,6 +12,21 @@ import { Footer } from '../components/Layout'
 import styleVars from '../styles'
 import data from '../data'
 
+type State = {|
+  activeChapter: number,
+  captionsVisible: boolean,
+  duration: number,
+  activeSection: number
+|};
+
+type Props = {|
+  match: Object,
+  isMuted: boolean,
+  isPlaying: boolean,
+  toggleMute: () => void,
+  togglePause: () => void
+|};
+
 const { TYPE } = styleVars
 const { PUBLIC_URL } = process.env
 const Wrapper = styled.div`
@@ -75,37 +90,34 @@ const Mask = styled.div`
   z-index: 0;
 `
 const PlayControls = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   position: relative;
-  width: 100%;
   z-index: 1;
-  ${Icon}:nth-child(2) {
-    align-self: center;
-    justify-self: center;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    margin: 0;
-    margin-bottom: -0.75rem;
+
+  ${Icon} {
+    cursor: pointer;
+
+    &:nth-child(2) {
+      border-radius: 50%;
+      border: #fff solid 2px;
+      font-size: 1.5em;
+      margin: 0 1rem;
+      padding: 0.75em;
+
+      &[icon="e90f"]::after {
+        transform: translatex(0.0625em);
+      }
+    }
+
+    &::after {
+      display: block;
+      line-height: 1;
+      width: 1em;
+    }
   }
 `
-
-type State = {|
-  activeChapter: number,
-  captionsVisible: boolean,
-  duration: number,
-  activeSection: number
-|};
-
-type Props = {|
-  match: Object,
-  isMuted: boolean,
-  isPlaying: boolean,
-  toggleMute: () => void,
-  togglePause: () => void
-|};
 
 const playListVisible = false
 
