@@ -88,7 +88,7 @@ const PaidFor = styled.div`
   }
 `
 
-const CTA = styled.a`
+const CTA = styled.div`
   border-radius: 1rem;
   border: #fff solid 1px;
   color: ${COLOURS.bodyCopy.default};
@@ -168,7 +168,7 @@ const Intro = () => (
         <img src={`${PUBLIC_URL || ''}/icons/icon-logo.png`} alt="NAB Logo" />
       </PaidFor>
       <Link to="/overview" style={{ textDecoration: 'none' }}>
-        <CTA>Click here to begin</CTA>
+        <CTA tabindex="0">Click here to begin</CTA>
       </Link>
       <Share>
         Share this
