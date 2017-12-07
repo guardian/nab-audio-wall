@@ -31,6 +31,9 @@ const UI = styled.div`
     color-stop(0.9, rgba(0, 0, 0, 1)),
     color-stop(1, rgba(0, 0, 0, 0))
   );
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 `
 const Child = styled.div`
   font-size: 0.8rem;

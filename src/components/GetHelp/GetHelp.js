@@ -58,6 +58,14 @@ const CTA = styled.a`
   }
 `
 
+const GridContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+`
+
 const GridCell = styled.section`
   font-family: ${TYPE.fontFamily.functional};
   text-align: center;
@@ -76,7 +84,7 @@ const GetHelp = () => (
     </Header>
     <Heading style={{ margin: "0.67em 0" }}>Where to get help</Heading>
 	<div style={{ width: "100%" }}>
-    <p style={{ padding: "20px", textAlign: "center", maxWidth: "1024px", display: "block", margin: "0 auto", fontFamily: "'Guardian Agate Sans', sans-serif", fontSize: "0.8rem", lineHeight: "1.25rem" }}>
+    <p style={{ padding: "20px", textAlign: "center", maxWidth: "960px", display: "block", margin: "0 auto", fontFamily: "'Guardian Agate Sans', sans-serif", fontSize: "0.8rem", lineHeight: "1.25rem" }}>
 		This content has been brought to you by NAB,
 		who is playing an active role in raising awareness
 		and providing critical support to help see an end
@@ -84,6 +92,7 @@ const GetHelp = () => (
 		<a href="https://www.nab.com.au/about-us/corporate-responsibility/customers/domestic-and-family-violence?own_cid=shortURL:endtoviolence" style={{ color: "white", textDecoration: "underline" }}>nab.com.au/endtoviolence</a>
     </p>
     </div>
+    <GridContainer>
     {copy.map((c, i) => (
       <GridCell key={i}>
         <header>
@@ -95,6 +104,7 @@ const GetHelp = () => (
         </CTA>
       </GridCell>
     ))}
+    </GridContainer>
   </Wrapper>
 )
 
